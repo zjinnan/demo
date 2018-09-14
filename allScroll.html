@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+    <title>鼠标点击滑动对应区域</title>
+    <style>
+    #jnBrand{
+        float:left;
+        height:230px;
+        margin:10px 0 0;
+        overflow: hidden;;
+        width:790px;
+    }
+    #jnBrand{
+        float:left;
+        height:230px;
+        margin:10px 0 0;
+        overflow: hidden;
+        width:790px;
+    }
+    #jnBrandTab{
+        border-bottom:1px solid #E4E4E4;
+        height:29px;
+        position: relative;
+        width:790px;
+        float:left;
+    }
+    #jnBrandTab ul{
+        list-style:none;
+    }
+    #jnBrandTab h2{
+        height:29px;
+        line-height:29px;
+        left:0;
+        position: absolute;
+        width:110px;
+    }
+    #jnBrandTab ul{
+        position: absolute;
+        right:0;
+        top:10px;
+    }
+    #jnBrandTab li{
+        float:left;
+        margin:0 10px 0 0;
+    }
+    #jnBrandTab li a{
+        background-color:#E4E4E4;
+        color:#000;
+        display:inline-block;
+        height:20px;
+        line-height:20px;
+        padding:0 10px;
+    }
+    #jnBrandTab .chos a{
+        background:url("../images/chos.gif") no-repeat scroll 50% bottom transparent;
+        padding-bottom:3px;
+    }
+    #jnBrandTab .chos a{
+        background-color:#FA5889;
+        color:#fff;
+        outline:0 none;
+    }
+    #jnBrandContent{
+        float:left;
+        height:188px;
+        overflow: hidden;
+        margin:8px 5px;
+        width:790px;
+        position: relative;
+    }
+    #jnBrandList{
+        position: absolute;
+        left:0;
+        top:0;
+        width:3200px;
+    }
+    #jnBrandContent li{
+        float:left;
+        height:188px;
+        overflow: hidden;
+        padding:0 5px;
+        position: relative;
+        width:185px;
+    }
+    #jnBrandContent li img{
+        left:5px;
+        position: absolute;
+        top:0;
+    }
+    #jnBrandContent li span{
+        background-color:#EFEFEF;
+        bottom:0;
+        color:#666;
+        display:clock;
+        font-size:14px;
+        height:24px;
+        line-height:24px;
+        overflow: hidden;
+        position: absolute;
+        text-align:center;
+        width:183px;
+    }
+    #jnBrandContent{
+        color:#666;
+    }
+    #jnBrandContent li a:hover{
+        color:#008CD7;
+        text-decoration:none;
+    }
+    </style>
+</head>
+<body>
+<div id="jnBrand">
+    <div id="jnBrandTab">
+        <h2>品牌活动</h2>
+        <ul>
+            <li><a href="#nogo">运动</a></li>
+            <li><a href="#nogo">女鞋</a></li>
+            <li><a href="#nogo">男鞋</a></li>
+            <li><a href="#nogo">童鞋</a></li>
+        </ul>
+    </div>
+    <div id="jnBrandContent">
+        <div id="jnBrandList">
+            <ul>
+                <li>
+                    <a href="###1"><img src="images/9.jpg" alt=""></a>
+                    <span><a href="###1">耐克</a></span>
+                </li>
+                <li>
+                    <a href="###1"><img src="images/9.jpg" alt=""></a>
+                    <span><a href="###1">耐克</a></span>
+                </li>
+                <li>
+                    <a href="###1"><img src="images/9.jpg" alt=""></a>
+                    <span><a href="###1">耐克</a></span>
+                </li>
+                <li>
+                    <a href="###1"><img src="images/9.jpg" alt=""></a>
+                    <span><a href="###1">耐克</a></span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="###1"><img src="images/11.jpg" alt=""></a>
+                    <span><a href="###1">耐克</a></span>
+                </li>
+                <li>
+                    <a href="###1"><img src="images/11.jpg" alt=""></a>
+                    <span><a href="###1">耐克</a></span>
+                </li>
+                <li>
+                    <a href="###1"><img src="images/11.jpg" alt=""></a>
+                    <span><a href="###1">耐克</a></span>
+                </li>
+                <li>
+                    <a href="###1"><img src="images/11.jpg" alt=""></a>
+                    <span><a href="###1">耐克</a></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>    
+</body>
+</html>
+<script>
+    $(function(){
+    $("#jnBrandTab li a").click(function(){
+        $(this).parent().addClass("chos").siblings().removeClass("chos");
+        var idx = $("#jnBrandTab li a").index(this);
+        showBrand(idx);
+        return false;
+    }).eq(0).click();
+    //显示不同模块
+    function showBrand(index){
+        var $rollobj = $("#jnBrandList");
+        var rollWidth = $rollobj.find("li").outerWidth();
+        rollWidth = rollWidth*4//一个版面的宽度
+        $rollobj.stop(true,false).animate({left:-rollWidth*index},1000);
+    }
+})
+</script>
